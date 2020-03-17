@@ -1,0 +1,192 @@
+Atividade Avaliativa 1
+Disciplina: Estatística
+Unidade 1
+Professora: Julienne Fujii
+Aluno: Marcelo Cunha
+
+Considere as seguintes variáveis:
+
+(A) idade
+
+(E) tempo gasto diariamente no estudo
+
+(B) nível de escolaridade
+
+(F) distância de casa à escola
+
+(C) sexo
+
+(G) local de estudo
+
+(D) nota na disciplina de estatística
+
+(H) número de irmãos
+
+Das variáveis indicadas, quais são quantitativas?
+
+A, B , D, F, H.
+
+A, D, F, H.
+
+A, D, E, F, H. (Quantitativas)
+
+A, B, D, E, F, H.
+ 
+
+
+
+
+Questão 2:
+Com base nos dados das tabelas marque a alternativa INCORRETA:
+
+Grupo de escolhas da pergunta
+
+-16% dos operários especializados trocaram de 4 a 5 vezes de emprego nos últimos três anos.
+
+-Devemos calcular as frequências relativas (%) para realizar comparações entre as duas tabelas.
+
+-59% dos operários não especializados trocaram de 1 a 3 vezes de emprego nos últimos três anos.
+
+-Os operários especializados trocaram mais vezes de emprego nos últimos três anos do que os operários não especializados. (INCORRETA)
+
+
+Número de Empregados  Não Especializados
+
+```{r}
+library(dplyr)
+dados <- c(106,222, 222, 338,338,338, 292, 292, 292, 292, 164, 164, 164, 164, 164)
+numEmprego <- c(1,2,3,4,5)
+numEmpregadosMudaramEmprego <- c(106,222,338,292,164)
+empregados <- c(106,222, 222, 338,338,338, 292, 292, 292, 292, 164, 164, 164, 164, 164)
+totalEmpregados <-sum(numEmpregadosMudaramEmprego)
+
+
+
+for(i in 1:5)
+  {
+  freq[i] <- ((numEmpregadosMudaramEmprego[i] / totalEmpregados)*100)
+  numEmprego[i]
+  if(i==1)
+  {
+      freqAcumulada[i] <-freq[i]
+  }
+  else
+  {
+        freqAcumulada[i]<- freq[i] + freqAcumulada[i-1]
+  }
+}
+
+tabela <-data.frame(numEmprego,numEmpregadosMudaramEmprego,freq, freqAcumulada)
+tabela
+
+```
+Número de Empregados Especializados
+```{r}
+numEmprego <- c(1,2,3,4,5)
+numEmpregadosMudaramEmprego <- c(210,342,109,91,35)
+empregados <- c(210,342,342,109,109,109,91,91,91,91,35,35,35,35,35)
+totalEmpregados <-sum(numEmpregadosMudaramEmprego)
+
+
+
+for(i in 1:5)
+  {
+  freq[i] <- ((numEmpregadosMudaramEmprego[i] / totalEmpregados)*100)
+  numEmprego[i]
+  if(i==1)
+  {
+      freqAcumulada[i] <-freq[i]
+  }
+  else
+  {
+        freqAcumulada[i]<- freq[i] + freqAcumulada[i-1]
+  }
+}
+
+tabela <-data.frame(numEmprego,numEmpregadosMudaramEmprego,freq, freqAcumulada)
+tabela
+```
+
+
+
+Questão 3:
+
+A tabela de contingência a seguir mostra a distribuição dos casos de intoxicação e envenenamento humanos por sexo em um determinado município nos meses de dezembro/2001 e janeiro/2002.
+
+ 
+
+Causa da intoxicação e envenenamento
+
+Sexo
+
+Total
+
+Masculino
+
+Feminino
+
+Medicamentos
+
+13
+
+18
+
+31
+
+Animais peçonhentos
+
+25
+
+14
+
+39
+
+Químicos
+
+19
+
+12
+
+31
+
+Produtos domésticos
+
+7
+
+7
+
+14
+
+Plantas
+
+3
+
+3
+
+6
+
+Intoxicações alimentares
+
+2
+
+1
+
+3
+
+Total
+
+69
+
+55
+
+124
+
+Com base nos dados da tabela marque a alternativa INCORRETA:
+
+-Entre os casos de intoxicação e envenenamento identificados, 67% foram em pessoas do sexo masculino com intoxicações alimentares. (INCORRETA)
+
+-Entre os casos de intoxicação e envenenamento identificados, 11% foram com produtos domésticos.
+
+-Entre as pessoas do sexo feminino, 33% foram intoxicadas e envenenadas por medicamentos.
+
+-Entre os casos de intoxicação e envenenamento por animais peçonhentos, 64% foram em pessoas do sexo masculino.
